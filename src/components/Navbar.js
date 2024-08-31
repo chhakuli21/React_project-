@@ -9,7 +9,7 @@ export default function Navbar(props) {
         div className = "container-fluid" >
         <
         Link className = "navbar-brand"
-        to = "#home" > { props.title } < /Link> <
+        to = "/home" > { props.title } < /Link> <
         button className = "navbar-toggler"
         type = "button"
         data_bs_toggle = "collapse"
@@ -34,7 +34,7 @@ export default function Navbar(props) {
         li className = "nav-item" >
         <
         Link className = "nav-link"
-        to = "/about" > about < /Link> <
+        to = "/about" > { props.aboutText } < /Link> <
         /li> <
         /ul> <
         /div> <
