@@ -1,9 +1,10 @@
-// import About from './components/About';
 import React, { useState } from 'react';
-import './App.css';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import About from './components/About';
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
 import Alert from './components/Alert';
+import './App.css';
 
 function App() {
     const [mode, setMode] = useState('light');
@@ -33,34 +34,44 @@ function App() {
         if (transformationType === 'uppercase') {
             newText = text.toUpperCase();
             showAlert('Text converted to uppercase!', 'success');
-            document.title = 'TextUtils-Dark Mode';
+            document.title = 'TextUtils - Dark Mode';
         } else if (transformationType === 'lowercase') {
             newText = text.toLowerCase();
             showAlert('Text converted to lowercase!', 'success');
-            document.title = 'TextUtils-light Mode';
+            document.title = 'TextUtils - Light Mode';
         }
         return newText;
     };
 
     return ( <
+        Router >
+        <
         div className = { `App ${mode}` } >
         <
         Navbar title = "TextUtils"
-        aboutText = "About TextUtils"
         mode = { mode }
         toggleMode = { toggleMode }
         /> <
-        Alert Alert = { alert }
+        Alert alert = { alert }
         /> <
         div className = "container my-3" >
         <
-        TextForm heading = "Enter the text to analyze"
-        mode = { mode }
-        handleTextTransformation = { handleTextTransformation }
+        Routes >
+        <
+        Route exact path = "/about"
+        element = { < About / > }
         /> <
-        /div> <
-        /div>
-    );
-}
+        Route exact path = "/"
+        element = { < TextForm heading = "Enter the text to analyze"
+            mode = { mode }
+            handleTextTransformation = { handleTextTransformation }
+            />} / >
+            <
+            /Routes> <
+            /div> <
+            /div> <
+            /Router>
+        );
+    }
 
-export default App;
+    export default App;

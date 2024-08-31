@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 export default function Navbar(props) {
     return ( <
@@ -7,8 +8,8 @@ export default function Navbar(props) {
         <
         div className = "container-fluid" >
         <
-        a className = "navbar-brand"
-        href = "#home" > { props.title } < /a> <
+        Link className = "navbar-brand"
+        to = "#home" > { props.title } < /Link> <
         button className = "navbar-toggler"
         type = "button"
         data_bs_toggle = "collapse"
@@ -26,14 +27,14 @@ export default function Navbar(props) {
         <
         li className = "nav-item" >
         <
-        a className = "nav-link active"
+        Link className = "nav-link active"
         aria_current = "page"
-        href = "#home" > Home < /a> <
+        to = "/" > Home < /Link> <
         /li> <
         li className = "nav-item" >
         <
-        a className = "nav-link"
-        href = "#about" > { props.aboutText } < /a> <
+        Link className = "nav-link"
+        to = "/about" > about < /Link> <
         /li> <
         /ul> <
         /div> <
